@@ -1,0 +1,89 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.editor-styles-wrapper .wp-block-sg-block-bootstenberg-layout.row{
+  margin-top: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wp-block-sg-block-bootstenberg-layout{
+
+  &.guide{
+	border: 1px dotted #f00;
+  }
+
+  .sg-empty-inner-block {
+	text-align: center;
+	padding: 20px;
+	color: black !important;
+  }
+
+  .block-editor-inner-blocks {
+	margin: 20px;
+	flex: 1;
+  }
+
+  .block-list-appender.wp-block {
+	width: 100%;
+  }
+
+  .block-editor-block-list__layout{
+	display: flex;
+	flex-wrap: wrap;
+
+	&>*{
+	  flex-shrink: 0;
+	  width: 100%;
+	  max-width: 100%;
+	}
+  }
+
+  .sg-block-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.dashicons {
+	  margin-right: 5px;
+	}
+  }
+}
+
+.sg-inspector{
+  .label{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 20px 0 10px;
+  }
+
+  .btn-clean{
+	color: red;
+	border: 1px solid;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 4px 5px;
+	background: white;
+  }
+}
+
+.sg-toolbar{
+
+  button{
+	width: 45px;
+	height: 100%;
+	cursor: pointer;
+	color: lightgrey;
+  }
+
+  button.active{
+	color: black;
+  }
+
+}
+
+
