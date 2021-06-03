@@ -32,13 +32,13 @@ export default function save({ attributes}) {
 				{
 					attributes.itsSection ?
 						(
-							<section className="row" style={ attributes.style }>
+							<section className={ `row ${classes}` } style={ attributes.style }>
 								<InnerBlocks.Content />
 							</section>
 						) :
 
 						(
-							<div className="row" style={ attributes.style }>
+							<div className={ `row ${classes}` } style={ attributes.style }>
 								<InnerBlocks.Content />
 							</div>
 						)
