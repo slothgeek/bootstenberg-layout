@@ -28,17 +28,16 @@ export default function save({ attributes}) {
 
 	return attributes.hasContainer ?
 		(
-			<div id={ attributes.id } className="container" >
+			<div id={ attributes.id } className={ `container ${classes}` } >
 				{
 					attributes.itsSection ?
 						(
-							<section className={ `row ${classes}` } style={ attributes.style }>
+							<section className="row" style={ attributes.style }>
 								<InnerBlocks.Content />
 							</section>
 						) :
-
 						(
-							<div className={ `row ${classes}` } style={ attributes.style }>
+							<div className="row" style={ attributes.style }>
 								<InnerBlocks.Content />
 							</div>
 						)

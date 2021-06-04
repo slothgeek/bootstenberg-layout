@@ -157,7 +157,6 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 
 				) }
 			/>
-
 		</div>
 	);
 }
