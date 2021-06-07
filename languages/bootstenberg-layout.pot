@@ -1,0 +1,130 @@
+# Copyright (C) 2021 SlothGeek
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Bootstenberg Layout (Gutenberg Block) 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bootstenberg-layout\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-06-07T11:56:50-05:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.5.0\n"
+"X-Domain: bootstenberg-layout\n"
+
+#. Plugin Name of the plugin
+msgid "Bootstenberg Layout (Gutenberg Block)"
+msgstr ""
+
+#. Description of the plugin
+msgid "Bloque gutenberg para diseño de columnas basado en Bootstrap v5"
+msgstr ""
+
+#. Author of the plugin
+msgid "SlothGeek"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:68
+msgid "Mostrar guía"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:81
+msgid "Alineación"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:84
+#: src/edit.js:126
+#: src/edit.js:144
+msgid "Limpiar"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:92
+msgid "Arriba"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:93
+msgid "Centro"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:94
+msgid "Abajo"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:97
+msgid "Espacio"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:99
+msgid "¿Activar sección?"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:105
+msgid "¿Activar contenedor?"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:106
+msgid "Contenedor."
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:106
+#: src/edit.js:112
+msgid "Solo fila."
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:111
+msgid "¿Ancho completo?"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:112
+msgid "Fila."
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:117
+msgid "Estilo"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:120
+msgid "Color de fondo"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:138
+msgid "Color de texto"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:52
+msgid "Layout (Fila)"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:54
+msgid "Agrega una o más columnas presionando el botón de abajo con el símbolo de más."
+msgstr ""
+
+#: block.json
+msgctxt "block title"
+msgid "Bootstenberg Layout"
+msgstr ""
+
+#: block.json
+msgctxt "block description"
+msgid "Gutenberg block based on bootstrap framework to implements grind system. Note: This block only work with Bootstenberg Columns"
+msgstr ""

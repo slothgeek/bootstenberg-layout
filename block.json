@@ -2,7 +2,7 @@
 	"apiVersion": 2,
 	"name": "sg-block/bootstenberg-layout",
 	"title": "Bootstenberg Layout",
-	"category": "widgets",
+	"category": "layout",
 	"icon": "grid-view",
 	"description": "Gutenberg block based on bootstrap framework to implements grind system. Note: This block only work with Bootstenberg Columns",
 	"supports": {

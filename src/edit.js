@@ -49,9 +49,9 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 					<div className="sg-empty-inner-block">
 						<div className="sg-block-name">
 							<span className="dashicons dashicons-grid-view"></span>
-							{ __( 'Layout (Fila)', 'bootstenberg' ) }
+							{ __( 'Layout (Fila)', 'bootstenberg-layout' ) }
 						</div>
-						{ __( 'Agrega una o más columnas presionando el botón de abajo con el símbolo de más.', 'bootstenberg' ) }
+						{ __( 'Agrega una o más columnas presionando el botón de abajo con el símbolo de más.', 'bootstenberg-layout' ) }
 					</div>
 				]
 			)
@@ -65,7 +65,7 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 				<ToolbarGroup class="sg-toolbar">
 					<ToolbarButton
 						icon={ help }
-						label={__("Mostrar guía", "bootstenberg") }
+						label={__("Mostrar guía", "bootstenberg-layout") }
 						onClick={ () => setAttributes( {showGuide: !attributes.showGuide} ) }
 						className={ attributes.showGuide ? 'active' : ''}
 					/>
@@ -78,11 +78,10 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 		return(
 			<InspectorControls>
 				<div className="wp-block-sg-block-bootstenberg-layout">
-					<PanelBody title={ __( 'Alineación', 'bootstenberg' ) } initialOpen={ true }>
+					<PanelBody title={ __( 'Alineación', 'bootstenberg-layout' ) } initialOpen={ true }>
 						<div className="label">
 							<span>Alineación vertical</span>
-							<button className="btn-clean" onClick={() => setAttributes({verticalAlign: ""})}>Limpiar
-							</button>
+							<button className="btn-clean" onClick={() => setAttributes({verticalAlign: ""})}>{__('Limpiar', 'bootstenberg-layout')}</button>
 						</div>
 						<RadioGroup
 							onChange={ ( value ) => {
@@ -95,36 +94,36 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 							<Radio value=" align-items-end">{__('Abajo', 'bootstenberg-layout')}</Radio>
 						</RadioGroup>
 					</PanelBody>
-					<PanelBody title={ __( 'Espacio', 'bootstenberg' ) } initialOpen={ false }>
+					<PanelBody title={ __( 'Espacio', 'bootstenberg-layout' ) } initialOpen={ false }>
 						<ToggleControl
-							label="¿Activar sección?"
+							label={__('¿Activar sección?','bootstenberg-layout')}
 							help={ attributes.itsSection ? 'Sección.' : 'Solo fila.' }
 							checked={ attributes.itsSection }
 							onChange={ (value) => setAttributes( { itsSection: value } ) }
 						/>
 						<ToggleControl
-							label="¿Activar contenedor?"
-							help={ attributes.hasContainer ? 'Contenedor.' : 'Solo fila.' }
+							label={__('¿Activar contenedor?','bootstenberg-layout')}
+							help={ attributes.hasContainer ? __('Contenedor.','bootstenberg-layout') : __('Solo fila.','bootstenberg-layout') }
 							checked={ attributes.hasContainer }
 							onChange={ (value) => setAttributes( { hasContainer: value } ) }
 						/>
 						<ToggleControl
-							label="¿Ancho completo?"
-							help={ attributes.fullWidth ? 'Fila.' : 'Solo fila.' }
+							label={__('¿Ancho completo?','bootstenberg-layout')}
+							help={ attributes.fullWidth ? __('Fila.','bootstenberg-layout')  : __('Solo fila.','bootstenberg-layout') }
 							checked={ attributes.fullWidth }
 							onChange={ (value) => setAttributes( { fullWidth: value } ) }
 						/>
 					</PanelBody>
-					<PanelBody title={ __( 'Estilo', 'bootstenberg' ) } initialOpen={ false }>
+					<PanelBody title={ __( 'Estilo', 'bootstenberg-layout' ) } initialOpen={ false }>
 						<div className="sg-inspector">
 							<div className="label">
-								<span>{ __( 'Color de fondo', 'bootstenberg' ) }</span>
+								<span>{ __( 'Color de fondo', 'bootstenberg-layout' ) }</span>
 								<button className="btn-clean" onClick={() => {
 									let style = attributes.style;
 									delete style.backgroundColor;
 									setAttributes( {style: style} );
 
-								}}>{ __( 'Limpiar', 'bootstenberg' ) }
+								}}>{ __( 'Limpiar', 'bootstenberg-layout' ) }
 								</button>
 							</div>
 							<ColorPicker
@@ -136,13 +135,13 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 						<div className="sg-inspector">
 
 							<div className="label">
-								<span>{ __( 'Color de texto', 'bootstenberg' ) }</span>
+								<span>{ __( 'Color de texto', 'bootstenberg-layout' ) }</span>
 								<button className="btn-clean" onClick={() => {
 									let style = attributes.style;
 									delete style.color;
 									setAttributes( {style: style} );
 
-								}}>{ __( 'Limpiar', 'bootstenberg' ) }
+								}}>{ __( 'Limpiar', 'bootstenberg-layout' ) }
 								</button>
 							</div>
 							<ColorPicker
