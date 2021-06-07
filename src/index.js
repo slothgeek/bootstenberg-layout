@@ -46,6 +46,10 @@ registerBlockType( 'sg-block/bootstenberg-layout', {
 			type:'boolean',
 			default:true
 		},
+		verticalAlign:{
+			type:'string',
+			default:''
+		},
 		style:{
 			type: 'object',
 			default: {}

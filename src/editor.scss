@@ -51,9 +51,8 @@
 	  margin-right: 5px;
 	}
   }
-}
 
-.sg-inspector{
+  //InspectoControl Rules
   .label{
 	display: flex;
 	align-items: center;
@@ -68,6 +67,16 @@
 	cursor: pointer;
 	padding: 4px 5px;
 	background: white;
+  }
+
+  .components-button-group {
+	width: 100%;
+	display: flex;
+
+	& > button {
+	  width: 100%;
+	  justify-content: center;
+	}
   }
 }
 

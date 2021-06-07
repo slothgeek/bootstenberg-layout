@@ -32,12 +32,12 @@ export default function save({ attributes}) {
 				{
 					attributes.itsSection ?
 						(
-							<section className="row" style={ attributes.style }>
+							<section className={ `row${attributes.verticalAlign}` } style={ attributes.style }>
 								<InnerBlocks.Content />
 							</section>
 						) :
 						(
-							<div className="row" style={ attributes.style }>
+							<div className={ `row${attributes.verticalAlign}` } style={ attributes.style }>
 								<InnerBlocks.Content />
 							</div>
 						)
@@ -47,13 +47,13 @@ export default function save({ attributes}) {
 		(
 			attributes.itsSection ?
 				(
-					<section id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':''  }` } style={ attributes.style }>
+					<section id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':'' }${attributes.verticalAlign}` } style={ attributes.style }>
 						<InnerBlocks.Content />
 					</section>
 				) :
 
 				(
-					<div id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':''  }` } style={ attributes.style }>
+					<div id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':''  }${attributes.verticalAlign}` } style={ attributes.style }>
 						<InnerBlocks.Content />
 					</div>
 				)

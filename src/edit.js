@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps, InnerBlocks, InspectorControls, BlockControls } from '@wordpress/block-editor';
-import { ToolbarGroup,ToggleControl,ToolbarButton, PanelBody, ColorPicker } from '@wordpress/components';
+import { ToolbarGroup,ToggleControl,ToolbarButton, PanelBody, ColorPicker, __experimentalRadio as Radio, __experimentalRadioGroup as RadioGroup } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { help } from '@wordpress/icons';
 
@@ -77,63 +77,81 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 	const settings = () => {
 		return(
 			<InspectorControls>
-				<PanelBody title={ __( 'Espacio', 'bootstenberg' ) } initialOpen={ false }>
-					<ToggleControl
-						label="¿Activar sección?"
-						help={ attributes.itsSection ? 'Sección.' : 'Solo fila.' }
-						checked={ attributes.itsSection }
-						onChange={ (value) => setAttributes( { itsSection: value } ) }
-					/>
-					<ToggleControl
-						label="¿Activar contenedor?"
-						help={ attributes.hasContainer ? 'Contenedor.' : 'Solo fila.' }
-						checked={ attributes.hasContainer }
-						onChange={ (value) => setAttributes( { hasContainer: value } ) }
-					/>
-					<ToggleControl
-						label="¿Ancho completo?"
-						help={ attributes.fullWidth ? 'Fila.' : 'Solo fila.' }
-						checked={ attributes.fullWidth }
-						onChange={ (value) => setAttributes( { fullWidth: value } ) }
-					/>
-				</PanelBody>
-				<PanelBody title={ __( 'Estilo', 'bootstenberg' ) } initialOpen={ false }>
-					<div className="sg-inspector">
+				<div className="wp-block-sg-block-bootstenberg-layout">
+					<PanelBody title={ __( 'Alineación', 'bootstenberg' ) } initialOpen={ true }>
 						<div className="label">
-							<span>{ __( 'Color de fondo', 'bootstenberg' ) }</span>
-							<button className="btn-clean" onClick={() => {
-								let style = attributes.style;
-								delete style.backgroundColor;
-								setAttributes( {style: style} );
-
-							}}>{ __( 'Limpiar', 'bootstenberg' ) }
+							<span>Alineación vertical</span>
+							<button className="btn-clean" onClick={() => setAttributes({verticalAlign: ""})}>Limpiar
 							</button>
 						</div>
-						<ColorPicker
-							value={ attributes.style.backgroundColor }
-							onChangeComplete={ ( color ) => setAttributes( { style: { ...attributes.style, backgroundColor: color.hex } } ) }
+						<RadioGroup
+							onChange={ ( value ) => {
+								setAttributes( { verticalAlign: value } );
+							} }
+							defaultChecked=""
+							checked={ attributes.verticalAlign }>
+							<Radio value=" align-items-start">{__('Arriba', 'bootstenberg-layout')}</Radio>
+							<Radio value=" align-items-center">{__('Centro', 'bootstenberg-layout')}</Radio>
+							<Radio value=" align-items-end">{__('Abajo', 'bootstenberg-layout')}</Radio>
+						</RadioGroup>
+					</PanelBody>
+					<PanelBody title={ __( 'Espacio', 'bootstenberg' ) } initialOpen={ false }>
+						<ToggleControl
+							label="¿Activar sección?"
+							help={ attributes.itsSection ? 'Sección.' : 'Solo fila.' }
+							checked={ attributes.itsSection }
+							onChange={ (value) => setAttributes( { itsSection: value } ) }
 						/>
-					</div>
+						<ToggleControl
+							label="¿Activar contenedor?"
+							help={ attributes.hasContainer ? 'Contenedor.' : 'Solo fila.' }
+							checked={ attributes.hasContainer }
+							onChange={ (value) => setAttributes( { hasContainer: value } ) }
+						/>
+						<ToggleControl
+							label="¿Ancho completo?"
+							help={ attributes.fullWidth ? 'Fila.' : 'Solo fila.' }
+							checked={ attributes.fullWidth }
+							onChange={ (value) => setAttributes( { fullWidth: value } ) }
+						/>
+					</PanelBody>
+					<PanelBody title={ __( 'Estilo', 'bootstenberg' ) } initialOpen={ false }>
+						<div className="sg-inspector">
+							<div className="label">
+								<span>{ __( 'Color de fondo', 'bootstenberg' ) }</span>
+								<button className="btn-clean" onClick={() => {
+									let style = attributes.style;
+									delete style.backgroundColor;
+									setAttributes( {style: style} );
 
-					<div className="sg-inspector">
-
-						<div className="label">
-							<span>{ __( 'Color de texto', 'bootstenberg' ) }</span>
-							<button className="btn-clean" onClick={() => {
-								let style = attributes.style;
-								delete style.color;
-								setAttributes( {style: style} );
-
-							}}>{ __( 'Limpiar', 'bootstenberg' ) }
-							</button>
+								}}>{ __( 'Limpiar', 'bootstenberg' ) }
+								</button>
+							</div>
+							<ColorPicker
+								value={ attributes.style.backgroundColor }
+								onChangeComplete={ ( color ) => setAttributes( { style: { ...attributes.style, backgroundColor: color.hex } } ) }
+							/>
 						</div>
-						<ColorPicker
-							value={ attributes.style.color }
-							onChangeComplete={ ( color ) => setAttributes( { style: { ...attributes.style, color: color.hex } } ) }
-						/>
-					</div>
 
-				</PanelBody>
+						<div className="sg-inspector">
+
+							<div className="label">
+								<span>{ __( 'Color de texto', 'bootstenberg' ) }</span>
+								<button className="btn-clean" onClick={() => {
+									let style = attributes.style;
+									delete style.color;
+									setAttributes( {style: style} );
+
+								}}>{ __( 'Limpiar', 'bootstenberg' ) }
+								</button>
+							</div>
+							<ColorPicker
+								value={ attributes.style.color }
+								onChangeComplete={ ( color ) => setAttributes( { style: { ...attributes.style, color: color.hex } } ) }
+							/>
+						</div>
+					</PanelBody>
+				</div>
 			</InspectorControls>
 
 		)
