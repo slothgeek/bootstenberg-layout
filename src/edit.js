@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InnerBlocks, InspectorControls, BlockControls } from '@wordpress/block-editor';
-import { ToolbarGroup,ToggleControl,ToolbarButton, PanelBody, ColorPicker, __experimentalRadio as Radio, __experimentalRadioGroup as RadioGroup } from '@wordpress/components';
+import { useBlockProps, InnerBlocks, InspectorControls, BlockControls, MediaUpload } from '@wordpress/block-editor';
+import { ToolbarGroup,ToggleControl,ToolbarButton, PanelBody, ColorPicker, __experimentalRadio as Radio, __experimentalRadioGroup as RadioGroup, Button } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { help } from '@wordpress/icons';
 
@@ -72,6 +72,7 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 				</ToolbarGroup>
 			</BlockControls>
 		);
+
 	}
 
 	const settings = () => {
@@ -133,7 +134,6 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 						</div>
 
 						<div className="sg-inspector">
-
 							<div className="label">
 								<span>{ __( 'Color de texto', 'bootstenberg-layout' ) }</span>
 								<button className="btn-clean" onClick={() => {
@@ -149,12 +149,68 @@ export default function Edit({ clientId, attributes, setAttributes }) {
 								onChangeComplete={ ( color ) => setAttributes( { style: { ...attributes.style, color: color.hex } } ) }
 							/>
 						</div>
+						<div className="sg-inspector">
+						<div className="label">
+							<span>{ __( 'Imagen de fondo', 'bootstenberg-layout' ) }</span>
+								<button className="btn-clean" onClick={() => {
+									let style = attributes.style;
+									delete style.backgroundImage;
+									setAttributes( {style: style} );
+
+								}}>{ __( 'Limpiar', 'bootstenberg-layout' ) }
+								</button>
+							</div>
+							<MediaUpload
+								className="center-align"
+								onSelect={ (media) => setAttributes( { style: { ...attributes.style, backgroundImage: `url(${media.url})`} } ) }
+								type="image"
+								render={ ({ open }) => getImageButton(open, attributes.style.backgroundImage) }
+							/>
+						</div>
 					</PanelBody>
 				</div>
 			</InspectorControls>
 
 		)
 	}
+
+	const getImageButton = (openEvent, url) => {
+		if(url) {
+			url = url.replace('url(', '').replace(')', '');
+
+			return (
+				<div className='graphic-picker-with-image'>		
+					<div className='graphic'>
+						<img
+							src={ url }
+							className="image"
+						/>
+					</div>	
+					<Button
+						className="is-primary"
+						onClick={openEvent}
+					>
+						{ __("Cambiar", "slothtenberg-image") }
+					</Button>						
+				</div>
+			);
+		}
+		else {
+			return (
+				<div className="graphic-picker-no-image"  >
+					
+					<Button
+						className="is-primary"
+						onClick={openEvent}
+					>
+						{ __("Subir", "slothtenberg-image") }
+					</Button>
+
+				</div>
+
+			);
+		}
+	};
 
 	const blockProps = useBlockProps( {
 		className: attributes.showGuide ? 'guide' : '',

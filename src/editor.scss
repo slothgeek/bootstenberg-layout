@@ -8,6 +8,7 @@
   margin-top: auto;
   margin-right: auto;
   margin-left: auto;
+  background-repeat: no-repeat;
 }
 
 .wp-block-sg-block-bootstenberg-layout{
@@ -96,4 +97,18 @@
 
 }
 
+.graphic-picker-with-image {
+
+	.graphic{
+		height: 100px;
+		overflow: hidden;
+		border: 1px dashed #ccc;
+	
+		img{
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+    
+}
 

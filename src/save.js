@@ -28,16 +28,16 @@ export default function save({ attributes}) {
 
 	return attributes.hasContainer ?
 		(
-			<div id={ attributes.id } className={ `container ${classes}` } >
+			<div id={ attributes.id } className={ `bootstenberg-layout container ${classes}` } style={ attributes.style }>
 				{
 					attributes.itsSection ?
 						(
-							<section className={ `row${attributes.verticalAlign}` } style={ attributes.style }>
+							<section className={ `row${attributes.verticalAlign}` }>
 								<InnerBlocks.Content />
 							</section>
 						) :
 						(
-							<div className={ `row${attributes.verticalAlign}` } style={ attributes.style }>
+							<div className={ `row${attributes.verticalAlign}` }>
 								<InnerBlocks.Content />
 							</div>
 						)
@@ -47,13 +47,13 @@ export default function save({ attributes}) {
 		(
 			attributes.itsSection ?
 				(
-					<section id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':'' }${attributes.verticalAlign}` } style={ attributes.style }>
+					<section id={ attributes.id }  className={`bootstenberg-layout row ${ classes }${ attributes.fullWidth?' full-width':'' }${attributes.verticalAlign}` } style={ attributes.style }>
 						<InnerBlocks.Content />
 					</section>
 				) :
 
 				(
-					<div id={ attributes.id }  className={`row ${ classes }${ attributes.fullWidth?' full-width':''  }${attributes.verticalAlign}` } style={ attributes.style }>
+					<div id={ attributes.id }  className={`bootstenberg-layout row ${ classes }${ attributes.fullWidth?' full-width':''  }${attributes.verticalAlign}` } style={ attributes.style }>
 						<InnerBlocks.Content />
 					</div>
 				)
