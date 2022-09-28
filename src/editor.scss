@@ -5,6 +5,7 @@
  */
 
 .editor-styles-wrapper .wp-block-sg-block-bootstenberg-layout.row{
+  max-width: 100%;
   margin-top: auto;
   margin-right: auto;
   margin-left: auto;
@@ -103,12 +104,12 @@
 		height: 100px;
 		overflow: hidden;
 		border: 1px dashed #ccc;
-	
+
 		img{
 			max-width: 100%;
 			max-height: 100%;
 		}
 	}
-    
+
 }
 

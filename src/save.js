@@ -28,21 +28,44 @@ export default function save({ attributes}) {
 
 	return attributes.hasContainer ?
 		(
-			<div id={ attributes.id } className={ `bootstenberg-layout container ${classes}` } style={ attributes.style }>
-				{
-					attributes.itsSection ?
-						(
-							<section className={ `row${attributes.verticalAlign}` }>
-								<InnerBlocks.Content />
-							</section>
-						) :
-						(
-							<div className={ `row${attributes.verticalAlign}` }>
-								<InnerBlocks.Content />
-							</div>
-						)
-				}
-			</div>
+			attributes.fullWidth ? (
+				<div id={ attributes.id } className={ `bootstenberg-layout ${classes}` } style={ attributes.style }>
+					<div className='container'>
+					{
+						attributes.itsSection ?
+							(
+								<section className={ `row${attributes.verticalAlign}` }>
+									<InnerBlocks.Content />
+								</section>
+							) :
+							(
+								<div className={ `row${attributes.verticalAlign}` }>
+									<InnerBlocks.Content />
+								</div>
+							)
+					}
+					</div>
+				</div>
+			):
+
+			(
+				<div id={ attributes.id } className={ `bootstenberg-layout container ${classes}` } style={ attributes.style }>
+					{
+						attributes.itsSection ?
+							(
+								<section className={ `row${attributes.verticalAlign}` }>
+									<InnerBlocks.Content />
+								</section>
+							) :
+							(
+								<div className={ `row${attributes.verticalAlign}` }>
+									<InnerBlocks.Content />
+								</div>
+							)
+					}
+				</div>
+			)
+			
 		) :
 		(
 			attributes.itsSection ?
